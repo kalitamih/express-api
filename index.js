@@ -1,6 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const booksData = require('./data/books.json');
+import express from 'express';
+import cors from 'cors';
+
+const { default: booksData } = await import("./data/books.json", {
+  assert: { type: "json" },
+});
 
 const app = express();
 app.use(cors());
